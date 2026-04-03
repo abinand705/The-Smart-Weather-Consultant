@@ -1,0 +1,32 @@
+1. Initial Prompt
+
+
+Build a simple HTML file called weather-consultant.html that acts as a Smart Weather Consultant.
+Fetch live weather data from the OpenWeatherMap API (using my API key: ab523d241b7a4a8e6a16e940d641f281) for 3 cities: Mumbai, London, and Tokyo.
+Display each city's current temperature (in Celsius), humidity percentage, wind speed, and weather description. Apply a vibe check logic:
+   - If temperature > 30°C → show 'Stay Hydrated'
+   - If temperature < 10°C → show 'Bundle Up'
+   - If humidity > 80% → show 'Frizz Alert'
+   - Otherwise → show 'Pleasant Weather'.
+ At the bottom, show a 'Human Insight' summary sentence comparing all 3 cities — for example: 'Pack an umbrella for London, but it's a perfect t-shirt day in Mumbai.'
+Make it look clean and modern with a dark theme. No external frameworks — pure HTML, CSS, and JavaScript only."
+
+2. Correction Prompt
+
+The weather data is not showing up and the page just says 'Couldn't load weather data'.
+The error says '401 Unauthorized'
+Fix this — I think the API key is not being passed correctly to the fetch URL.
+
+3. The Learning
+
+
+One thing the AI used that I didn't understand at first was:
+
+"const results = await Promise.all(fetchPromises);"
+
+I didn't know what Promise.all() did. After looking it up, I learned that:
+Promise.all() used to handle multiple asynchronous operations at the same time. It takes an array of promises (like your API fetch requests), runs them in parallel, and waits until all of them are completed. Once all promises resolve, it returns their results as an array. If any one promise fails, it immediately throws an error.
+This makes the page load 3x faster than fetching cities one by one.
+
+So now I understand that Promise.all() is like saying:
+"Start all these tasks simultaneously, and tell me when every single one is finished."
